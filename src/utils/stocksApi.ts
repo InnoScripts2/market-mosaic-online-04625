@@ -460,7 +460,10 @@ export function useStockData(initialData: Stock[], updateInterval = 5000) {
           const changeAmount = (Math.random() - 0.5) * (stock.price * 0.01);
           const newPrice = Math.max(stock.price + changeAmount, 0.01);
           const newChange = stock.change + changeAmount;
-          const newChangePercent = (newChange / (newPrice - newChange)) * 100;
+          
+          // Safeguard: Calculate percentage change properly, avoiding division by zero
+          const basePrice = newPrice - newChange;
+          const newChangePercent = basePrice !== 0 ? (newChange / basePrice) * 100 : 0;
           
           return {
             ...stock,
@@ -489,7 +492,10 @@ export function useMarketIndices(initialData: MarketIndex[], updateInterval = 80
           const changeAmount = (Math.random() - 0.5) * (index.value * 0.0015);
           const newValue = Math.max(index.value + changeAmount, 0.01);
           const newChange = index.change + changeAmount;
-          const newChangePercent = (newChange / (newValue - newChange)) * 100;
+          
+          // Safeguard: Calculate percentage change properly, avoiding division by zero
+          const baseValue = newValue - newChange;
+          const newChangePercent = baseValue !== 0 ? (newChange / baseValue) * 100 : 0;
           
           return {
             ...index,
@@ -518,7 +524,10 @@ export function useCurrencyPairs(initialData: CurrencyPair[], updateInterval = 1
           const changeAmount = (Math.random() - 0.5) * (currency.rate * 0.0008);
           const newRate = Math.max(currency.rate + changeAmount, 0.0001);
           const newChange = currency.change + changeAmount;
-          const newChangePercent = (newChange / (newRate - newChange)) * 100;
+          
+          // Safeguard: Calculate percentage change properly, avoiding division by zero
+          const baseRate = newRate - newChange;
+          const newChangePercent = baseRate !== 0 ? (newChange / baseRate) * 100 : 0;
           
           return {
             ...currency,
@@ -548,12 +557,17 @@ export function useCryptoData(initialData: Cryptocurrency[], updateInterval = 70
           const changeAmount = (Math.random() - 0.5) * (crypto.price * volatilityFactor);
           const newPrice = Math.max(crypto.price + changeAmount, 0.000001);
           const newChange = crypto.change + changeAmount;
-          const newChangePercent = (newChange / (newPrice - newChange)) * 100;
+          
+          // Safeguard: Calculate percentage change properly, avoiding division by zero
+          const basePrice = newPrice - newChange;
+          const newChangePercent = basePrice !== 0 ? (newChange / basePrice) * 100 : 0;
+          
+          const decimalPlaces = newPrice < 1 ? 4 : 2;
           
           return {
             ...crypto,
-            price: parseFloat(newPrice.toFixed(crypto.price < 1 ? 4 : 2)),
-            change: parseFloat(newChange.toFixed(crypto.price < 1 ? 4 : 2)),
+            price: parseFloat(newPrice.toFixed(decimalPlaces)),
+            change: parseFloat(newChange.toFixed(decimalPlaces)),
             changePercent: parseFloat(newChangePercent.toFixed(2)),
             lastUpdated: new Date()
           };
