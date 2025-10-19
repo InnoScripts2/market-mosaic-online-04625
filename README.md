@@ -1,69 +1,50 @@
-# Welcome to your Lovable project
+# Пульс рынка
 
-## Project info
+Интерактивная панель мониторинга финансовых рынков с разделами по акциям, индексам, валютам, портфелю и криптовалютам. Интерфейс и все вспомогательные тексты переведены на русский язык.
 
-**URL**: https://lovable.dev/projects/a8baea9a-97ae-4008-b023-5de63357c0e2
+## Основные возможности
 
-## How can I edit this code?
+- Живая витрина ключевых фондовых индексов и отдельных акций
+- Отслеживание валютных пар и динамики портфеля
+- Аналитика по секторам и криптовалютам
+- Единые компоненты shadcn-ui и адаптивная верстка на Tailwind CSS
 
-There are several ways of editing your application.
+## Технологический стек
 
-**Use Lovable**
+- Vite + React + TypeScript
+- Tailwind CSS и shadcn-ui
+- Recharts для визуализаций
+- TanStack Query для работы с данными
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a8baea9a-97ae-4008-b023-5de63357c0e2) and start prompting.
+## Запуск проекта локально
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Установите зависимости:
+	 ```bash
+	 npm install
+	 ```
+2. Запустите режим разработки с горячей перезагрузкой:
+	 ```bash
+	 npm run dev
+	 ```
+3. Откройте указанный в терминале URL (по умолчанию `http://localhost:5173`).
 
-**Use your preferred IDE**
+## Сборка и предпросмотр
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Сборка production-версии:
+	```bash
+	npm run build
+	```
+- Предпросмотр собранного проекта:
+	```bash
+	npm run preview
+	```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Структура каталогов
 
-Follow these steps:
+- `src/components` — UI-компоненты и виджеты панелей
+- `src/pages` — страницы приложения и маршруты
+- `src/utils` — вспомогательные утилиты и мок-данные
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Лицензия
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a8baea9a-97ae-4008-b023-5de63357c0e2) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Проект распространяется свободно для дальнейшей доработки и адаптации.

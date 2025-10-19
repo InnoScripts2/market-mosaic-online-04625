@@ -17,7 +17,7 @@ export function NewsCard({ news, className }: NewsCardProps) {
       <CardHeader className="pb-3 flex flex-row items-center">
         <div className="flex items-center">
           <NewspaperIcon className="h-5 w-5 mr-2" />
-          <h3 className="font-semibold text-lg">Market News</h3>
+          <h3 className="font-semibold text-lg">Новости рынка</h3>
         </div>
       </CardHeader>
       <CardContent className="p-0">
@@ -30,19 +30,19 @@ export function NewsCard({ news, className }: NewsCardProps) {
                   {formatDate(item.publishedAt)}
                 </span>
               </div>
-              
+
               <p className="text-sm text-muted-foreground mb-3">{item.summary}</p>
-              
+
               {item.imageUrl && (
                 <div className="relative h-32 mb-3 overflow-hidden rounded-md">
-                  <img 
-                    src={item.imageUrl} 
+                  <img
+                    src={item.imageUrl}
                     alt={item.title}
-                    className="absolute inset-0 h-full w-full object-cover" 
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
               )}
-              
+
               <div className="flex items-center justify-between">
                 <div className="flex gap-1">
                   {item.relatedSymbols?.map((symbol) => (

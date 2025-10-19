@@ -16,13 +16,13 @@ export function CurrencyExchange({ currencies, className }: CurrencyExchangeProp
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center">
           <DollarSignIcon className="h-5 w-5 mr-2" />
-          Currency Exchange
+          Курсы валют
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4">
         <div className="space-y-4">
           {currencies.map((currency) => (
-            <div 
+            <div
               key={currency.symbol}
               className="flex items-center justify-between p-3 rounded-md bg-secondary/40"
             >
@@ -35,25 +35,25 @@ export function CurrencyExchange({ currencies, className }: CurrencyExchangeProp
                   {currency.toCurrency}
                 </div>
               </div>
-              
+
               <div className="text-right">
-                <div className="font-medium">{currency.rate.toFixed(4)}</div>
+                <div className="font-medium">{currency.rate.toLocaleString('ru-RU', { minimumFractionDigits: 4, maximumFractionDigits: 4 })}</div>
                 <div className={cn(
                   "flex items-center text-xs justify-end",
                   currency.change >= 0 ? "text-success" : "text-danger"
                 )}>
-                  {currency.change >= 0 ? 
-                    <ArrowUpIcon className="h-3 w-3 mr-1" /> : 
+                  {currency.change >= 0 ?
+                    <ArrowUpIcon className="h-3 w-3 mr-1" /> :
                     <ArrowDownIcon className="h-3 w-3 mr-1" />
                   }
-                  {currency.change.toFixed(4)} ({(currency.changePercent).toFixed(2)}%)
+                  {currency.change.toLocaleString('ru-RU', { minimumFractionDigits: 4, maximumFractionDigits: 4 })} ({currency.changePercent.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%)
                 </div>
               </div>
             </div>
           ))}
         </div>
         <div className="text-xs text-right mt-4 text-muted-foreground">
-          Updated: {formatDate(new Date())}
+          Обновлено: {formatDate(new Date())}
         </div>
       </CardContent>
     </Card>

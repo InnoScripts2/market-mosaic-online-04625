@@ -18,23 +18,30 @@ export function MarketOverview({ indices, className }: MarketOverviewProps) {
     acc[index.region].push(index);
     return acc;
   }, {});
-  
+  const REGION_LABELS: Record<string, string> = {
+    'United States': 'США',
+    'United Kingdom': 'Великобритания',
+    'Germany': 'Германия',
+    'Japan': 'Япония'
+  };
+  const getRegionLabel = (region: string) => REGION_LABELS[region] ?? region;
+
   return (
     <Card className={cn("overflow-hidden", className)}>
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center">
           <GlobeIcon className="h-5 w-5 mr-2" />
-          Global Markets
+          Мировые рынки
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0">
         <div className="grid gap-0.5">
           {Object.entries(groupedByRegion).map(([region, indices]) => (
             <div key={region} className="p-4">
-              <h3 className="text-sm font-medium mb-2">{region}</h3>
+              <h3 className="text-sm font-medium mb-2">{getRegionLabel(region)}</h3>
               <div className="space-y-2">
                 {indices.map((index) => (
-                  <div 
+                  <div
                     key={index.symbol}
                     className="flex items-center justify-between py-1 border-b border-border/50 last:border-0"
                   >
@@ -43,16 +50,16 @@ export function MarketOverview({ indices, className }: MarketOverviewProps) {
                       <span className="text-xs text-muted-foreground">{index.symbol}</span>
                     </div>
                     <div className="flex flex-col items-end">
-                      <span className="font-medium">{index.value.toLocaleString(undefined, { 
-                        minimumFractionDigits: 2, 
-                        maximumFractionDigits: 2 
+                      <span className="font-medium">{index.value.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
                       })}</span>
                       <span className={cn(
                         "flex items-center text-xs",
                         index.change >= 0 ? "text-success" : "text-danger"
                       )}>
-                        {index.change >= 0 ? 
-                          <ArrowUpIcon className="h-3 w-3 mr-1" /> : 
+                        {index.change >= 0 ?
+                          <ArrowUpIcon className="h-3 w-3 mr-1" /> :
                           <ArrowDownIcon className="h-3 w-3 mr-1" />
                         }
                         {formatPercentage(index.changePercent)}

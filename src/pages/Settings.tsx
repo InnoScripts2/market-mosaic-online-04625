@@ -6,86 +6,86 @@ import { Bell, Globe, Lock, User, Settings as SettingsIcon } from 'lucide-react'
 
 const Settings = () => {
   return (
-    <PageLayout title="Settings">
+    <PageLayout title="Настройки">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1">
           <div className="bg-card rounded-lg p-6 shadow">
-            <h2 className="text-xl font-semibold mb-4">Settings</h2>
+            <h2 className="text-xl font-semibold mb-4">Настройки</h2>
             <nav className="space-y-2">
               <Button variant="ghost" className="w-full justify-start" size="lg">
                 <User className="mr-2 h-5 w-5" />
-                Account
+                Аккаунт
               </Button>
               <Button variant="ghost" className="w-full justify-start" size="lg">
                 <Bell className="mr-2 h-5 w-5" />
-                Notifications
+                Уведомления
               </Button>
               <Button variant="ghost" className="w-full justify-start" size="lg">
                 <Lock className="mr-2 h-5 w-5" />
-                Security
+                Безопасность
               </Button>
               <Button variant="ghost" className="w-full justify-start" size="lg">
                 <Globe className="mr-2 h-5 w-5" />
-                Regional Settings
+                Региональные параметры
               </Button>
               <Button variant="ghost" className="w-full justify-start" size="lg">
                 <SettingsIcon className="mr-2 h-5 w-5" />
-                Preferences
+                Предпочтения
               </Button>
             </nav>
           </div>
         </div>
-        
+
         <div className="lg:col-span-2">
           <div className="bg-card rounded-lg p-6 shadow">
-            <h2 className="text-xl font-semibold mb-6">Account Settings</h2>
-            
+            <h2 className="text-xl font-semibold mb-6">Параметры аккаунта</h2>
+
             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-medium mb-4">Personal Information</h3>
+                <h3 className="text-lg font-medium mb-4">Личные данные</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-1">First Name</label>
-                    <input 
-                      type="text" 
-                      defaultValue="John"
-                      className="w-full px-3 py-2 border rounded-md" 
+                    <label className="block text-sm font-medium mb-1">Имя</label>
+                    <input
+                      type="text"
+                      defaultValue="Иван"
+                      className="w-full px-3 py-2 border rounded-md"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Last Name</label>
-                    <input 
-                      type="text" 
-                      defaultValue="Smith"
-                      className="w-full px-3 py-2 border rounded-md" 
+                    <label className="block text-sm font-medium mb-1">Фамилия</label>
+                    <input
+                      type="text"
+                      defaultValue="Иванов"
+                      className="w-full px-3 py-2 border rounded-md"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Email</label>
-                    <input 
-                      type="email" 
-                      defaultValue="john.smith@example.com"
-                      className="w-full px-3 py-2 border rounded-md" 
+                    <label className="block text-sm font-medium mb-1">Электронная почта</label>
+                    <input
+                      type="email"
+                      defaultValue="ivan.ivanov@example.com"
+                      className="w-full px-3 py-2 border rounded-md"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1">Phone</label>
-                    <input 
-                      type="text" 
-                      defaultValue="+1 (555) 123-4567"
-                      className="w-full px-3 py-2 border rounded-md" 
+                    <label className="block text-sm font-medium mb-1">Телефон</label>
+                    <input
+                      type="text"
+                      defaultValue="+7 (495) 123-45-67"
+                      className="w-full px-3 py-2 border rounded-md"
                     />
                   </div>
                 </div>
               </div>
-              
+
               <div>
-                <h3 className="text-lg font-medium mb-4">Display Settings</h3>
+                <h3 className="text-lg font-medium mb-4">Настройки отображения</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium">Dark Mode</p>
-                      <p className="text-sm text-muted-foreground">Switch between light and dark theme</p>
+                      <p className="font-medium">Тёмная тема</p>
+                      <p className="text-sm text-muted-foreground">Переключение между светлой и тёмной темой</p>
                     </div>
                     <div>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -94,11 +94,11 @@ const Settings = () => {
                       </label>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium">Compact View</p>
-                      <p className="text-sm text-muted-foreground">Show more data with less spacing</p>
+                      <p className="font-medium">Компактный вид</p>
+                      <p className="text-sm text-muted-foreground">Больше данных на экране за счёт меньших отступов</p>
                     </div>
                     <div>
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -109,10 +109,10 @@ const Settings = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="pt-4 border-t">
-                <Button>Save Changes</Button>
-                <Button variant="outline" className="ml-2">Cancel</Button>
+                <Button>Сохранить изменения</Button>
+                <Button variant="outline" className="ml-2">Отмена</Button>
               </div>
             </div>
           </div>

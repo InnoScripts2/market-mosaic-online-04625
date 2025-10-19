@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { 
-  BarChart, PieChart, BarChart3, Wallet, LineChart, Globe, 
+import {
+  BarChart, PieChart, BarChart3, Wallet, LineChart, Globe,
   DollarSign, Settings, ChevronRight, ChevronLeft, Home
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -23,50 +23,50 @@ interface NavItem {
 
 export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
   const location = useLocation();
-  
+
   const navItems = [
     {
-      title: 'Dashboard',
+      title: 'Главная',
       icon: Home,
       href: '/',
     },
     {
-      title: 'Stocks',
+      title: 'Акции',
       icon: BarChart,
       href: '/stocks',
     },
     {
-      title: 'Markets',
+      title: 'Рынки',
       icon: BarChart3,
       href: '/markets',
     },
     {
-      title: 'Currencies',
+      title: 'Валюты',
       icon: DollarSign,
       href: '/currencies',
     },
     {
-      title: 'Global',
+      title: 'Глобальные рынки',
       icon: Globe,
       href: '/global',
     },
     {
-      title: 'Portfolio',
+      title: 'Портфель',
       icon: Wallet,
       href: '/portfolio',
     },
     {
-      title: 'Performance',
+      title: 'Доходность',
       icon: LineChart,
       href: '/performance',
     },
     {
-      title: 'Analysis',
+      title: 'Аналитика',
       icon: PieChart,
       href: '/analysis',
     },
     {
-      title: 'Settings',
+      title: 'Настройки',
       icon: Settings,
       href: '/settings',
     }
@@ -83,9 +83,9 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
           "font-semibold tracking-tight transition-opacity duration-200",
           isCollapsed ? "opacity-0" : "opacity-100"
         )}>
-          MarketPulse
+          Пульс рынка
         </h2>
-        
+
         <Button
           variant="ghost"
           size="icon"
@@ -98,7 +98,7 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
           {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
         </Button>
       </div>
-      
+
       <ScrollArea className="flex-1 py-4">
         <nav className="grid gap-1 px-2">
           {navItems.map((item, index) => {
@@ -125,15 +125,15 @@ export function Sidebar({ isCollapsed, onToggle, className }: SidebarProps) {
           })}
         </nav>
       </ScrollArea>
-      
+
       <div className="p-4 border-t border-sidebar-border">
         <div className={cn(
           "transition-opacity duration-200 rounded-md bg-sidebar-accent/50 p-2 text-xs text-sidebar-accent-foreground",
           isCollapsed ? "opacity-0" : "opacity-100"
         )}>
-          <p className="font-medium">Market Status</p>
-          <p>Markets are open</p>
-          <p className="text-[10px]">Closes in 3h 45m</p>
+          <p className="font-medium">Статус торгов</p>
+          <p>Рынки открыты</p>
+          <p className="text-[10px]">Закрытие через 3 ч 45 мин</p>
         </div>
       </div>
     </aside>
