@@ -75,11 +75,15 @@ const Analysis = () => {
 
   // Custom content for the treemap
   const CustomizedContent = (props: any) => {
-    const { root, depth, x, y, width, height, index, name, changePercent, value } = props;
+    const { root, depth, x, y, width, height, name } = props;
+
+    // Safely derive change percent from payload
+    const cpRaw = props?.payload?.changePercent ?? props?.changePercent;
+    const cp: number = typeof cpRaw === "number" ? cpRaw : 0;
 
     // Color based on change percent (green for positive, red for negative)
-    const color = changePercent >= 0 ? "#4ade80" : "#f87171";
-    const cellValue = changePercent >= 0 ? `+${changePercent.toFixed(2)}%` : `${changePercent.toFixed(2)}%`;
+    const color = cp >= 0 ? "#4ade80" : "#f87171";
+    const cellValue = `${cp >= 0 ? "+" : ""}${cp.toFixed(2)}%`;
 
     return (
       <g>
